@@ -58,7 +58,7 @@ app.use('/api', function (req, res) {
 
                     res.render("index", {
                       "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                      "cur": config.currencies, "url": "http://204.48.19.45/API/api/", "moment": moment
+                      "cur": config.currencies, "url": "http://204.48.19.45/api/", "moment": moment
                     });
 
                   });
@@ -71,7 +71,7 @@ app.use('/api', function (req, res) {
 
                     res.render("address", {
                       "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                      "cur": config.currencies, "url": "http://204.48.19.45/API/api/", "moment": moment
+                      "cur": config.currencies, "url": "http://204.48.19.45/api/", "moment": moment
                     });
 
                   });
