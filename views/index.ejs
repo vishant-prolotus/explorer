@@ -9,19 +9,19 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="shortcut icon" href="http://204.48.19.45/images/favicon.ico" />
-	<link rel="apple-touch-icon" href="http://204.48.19.45/images/favicon.ico" />
-	<link rel="apple-touch-icon-precomposed" href="http://204.48.19.45/images/favicon.ico" />
+	<link rel="shortcut icon" href="http://204.48.19.45/apiimages/favicon.ico" />
+	<link rel="apple-touch-icon" href="http://204.48.19.45/apiimages/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="http://204.48.19.45/apiimages/favicon.ico" />
 
-	<link rel="stylesheet" href="http://204.48.19.45/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://204.48.19.45/css/ExplorerEscodex.css" type="text/css" />
-	<script src="http://204.48.19.45/js/jquery.min.js"></script>
-	<script src="http://204.48.19.45/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://204.48.19.45/apicss/bootstrap.min.css">
+	<link rel="stylesheet" href="http://204.48.19.45/apicss/ExplorerEscodex.css" type="text/css" />
+	<script src="http://204.48.19.45/apijs/jquery.min.js"></script>
+	<script src="http://204.48.19.45/apijs/bootstrap.min.js"></script>
 	<script type='text/javascript'>
 		function sendrequest() {
 			var hash = document.getElementById('ID').value;
 			var type = document.getElementById('coinType').value;
-			window.location.href = '/' + type + '/' + hash;
+			window.location.href = '/api/' + type + '/' + hash;
 		}
 	</script>
 </head>
@@ -34,7 +34,7 @@
 					<div class="col-md-4 col-lg-4 col-sm-6 col-xl-4 col-xs-12">
 						<div id="logo">
 							<a href="http://204.48.19.45/API">
-								<img src="http://204.48.19.45/images/logo.png" alt="" />
+								<img src="http://204.48.19.45/apiimages/logo.png" alt="" />
 							</a>
 						</div>
 					</div>
@@ -46,37 +46,37 @@
 						<ul class="social_top">
 							<li>
 								<a href="https://www.facebook.com/EscoDex-197738274287664/">
-									<img src="http://204.48.19.45/images/facebook.png" alt="">
+									<img src="http://204.48.19.45/apiimages/facebook.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="http://www.twitter.com">
-									<img src="http://204.48.19.45/images/twitter.png" alt="">
+									<img src="http://204.48.19.45/apiimages/twitter.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://discord.gg/Sn4d2D">
-									<img src="http://204.48.19.45/images/social3.png" alt="">
+									<img src="http://204.48.19.45/apiimages/social3.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://t.me/escodex">
-									<img src="http://204.48.19.45/images/socail4.png" alt="">
+									<img src="http://204.48.19.45/apiimages/socail4.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://redd.it/8cvcu9">
-									<img src="http://204.48.19.45/images/reddit.png" alt="">
+									<img src="http://204.48.19.45/apiimages/reddit.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://bitcointalk.org/index.php?topic=3336699.msg34898798#msg34898798">
-									<img src="http://204.48.19.45/images/bitcoin.png" alt="">
+									<img src="http://204.48.19.45/apiimages/bitcoin.png" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://medium.com/@emmajones_27838/welcome-to-escodex-5ed1779102c1">
-									<img src="http://204.48.19.45/images/medium.png" alt="">
+									<img src="http://204.48.19.45/apiimages/medium.png" alt="">
 								</a>
 							</li>
 						</ul>
@@ -91,7 +91,7 @@
 
 				<div class="col-md-10 col-lg-10 col-sm-12 col-xl-10 col-12 offset-md-1 pt-3 section-1">
 					<a href="https://google.com">
-						<img src="http://204.48.19.45/images/banner31_8.gif" class="pb-4" style="width:100%;" />
+						<img src="http://204.48.19.45/apiimages/banner31_8.gif" class="pb-4" style="width:100%;" />
 					</a>
 					<%if (logo!=null) { %>
 						<div class="row">
@@ -106,7 +106,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 col-lg-2 col-sm-2 col-xl-2  text-center">
-								<img src="http://204.48.19.45/images/<%= logo %>.png" style="width:84%;" />
+								<img src="http://204.48.19.45/apiimages/<%= logo %>.png" style="width:84%;" />
 							</div>
 							<div class="col-md-5 col-lg-5 col-sm-5 col-xl-5 text-right ">
 								<div class="card text-center">
