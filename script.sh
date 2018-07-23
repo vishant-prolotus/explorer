@@ -3,12 +3,10 @@
 for pid in $(pgrep node)
 do
 kill -9 $pid
-done && echo "[+] PIDs Killed"
-
-cd /home/explorer
-git pull origin master
-sleep 1
-npm start
-echo "[+] Node App Started"
-
+done && echo "[+] PIDs Killed";
+cd /home/explorer;
+git pull origin master;
+sleep 1;
+npm start;
+echo "[+] Node App Started sucessfully";
 ## E O F ##

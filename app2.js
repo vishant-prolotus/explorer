@@ -5,12 +5,8 @@ var express = require('express')
     , cron = require('node-cron')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
-    , request = require('request')
+    , request = require('request');
+    
+
 
 const { execFile } = require('child_process');
-const child = execFile('bash', ['./script.sh'], (error, stdout, stderr) => {
-    if (error) {
-        throw error;
-    }
-    console.log(stdout);
-});

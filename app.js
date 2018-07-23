@@ -9,6 +9,7 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , request = require('request')
 var http = require('http');
+const shell = require('shelljs');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/explorerdb');
 var app = express();
@@ -136,6 +137,7 @@ app.use('/api', function (req, res) {
 
 app.use('/webhok', function (req, res) {
   console.log('webhook recived');
+  shell.exec('./script.sh');
 })
 
 app.get('*', function (req, res) {
