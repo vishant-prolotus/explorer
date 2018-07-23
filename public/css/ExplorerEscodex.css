@@ -45,7 +45,10 @@ min-height:530px;
  margin-bottom:0 !important;
  }
  #explorer .bg-secondary {
-    background-color: #093452!important;
+    background-color: #2d735c!important;
+}
+#escotx a{
+    color: #08ddff!important;
 }
 #adv-search .btn{
 border-radius: 0px 5px 5px 0px;  background-color:#00735c;border-color:#00735c;
