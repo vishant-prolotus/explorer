@@ -137,7 +137,7 @@ app.use('/api', function (req, res) {
 
 app.use('/webhok', function (req, res) {
   
-  console.log('webhook recived');
+  console.log('webhok recived');
   shell.exec('./script.sh');
   
 })
