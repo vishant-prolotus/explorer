@@ -4,12 +4,11 @@ for col in $cmd
 do
 echo $col
 if [[ $col = *"explorer"* ]]; then
-  kill -9 $pid
+ kill -9 $pid;
+ git pull origin master;
+ npm start;
+ echo "[+] Node App Started sucessfully";
 fi
 done;
 done;
-cd /home/explorer;
-git pull origin master;
-sleep 1;
-npm start;
-echo "[+] Node App Started sucessfully";
+## E O F ##
