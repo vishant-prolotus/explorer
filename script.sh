@@ -1,12 +1,14 @@
 #!/bin/bash
-
-for pid in $(pgrep node)
+pgrep -af node | while read -r pid cmd ; do     
+for col in $cmd
 do
-kill -9 $pid
-done && echo "[+] PIDs Killed";
-cd /home/explorer;
-git pull origin master;
-sleep 1;
-npm start;
-echo "[+] Node App Started sucessfully";
+echo $col
+if [[ $col = *"explorer"* ]]; then
+ kill -9 $pid;
+ git pull origin master;
+ npm start;
+ echo "[+] Node App Started sucessfully";
+fi
+done;
+done;
 ## E O F ##
