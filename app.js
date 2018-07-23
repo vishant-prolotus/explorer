@@ -135,13 +135,6 @@ app.use('/api', function (req, res) {
   }
 });
 
-app.use('/webhok', function (req, res) {
-  
-  console.log('webhook recived');
-  shell.exec('./script.sh');
-  
-})
-
 app.get('*', function (req, res) {
 
   var baseUrl = config.esco;
