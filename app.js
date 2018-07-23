@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', function (req, res) {
 
   var arr = req.url.split('/');
+  
   if (arr.length == 3) {
 
     var regEx = /^([A-Fa-f0-9]{64})$/.test(arr[2]);
