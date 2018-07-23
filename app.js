@@ -133,7 +133,7 @@ app.use('/api', function (req, res) {
   }
 });
 
-app.get('/webhok',function(req,res){
+app.use('/webhok', function (req, res) {
   console.log('webhook recived');
 })
 
