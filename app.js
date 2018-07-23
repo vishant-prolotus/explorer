@@ -133,6 +133,10 @@ app.use('/api', function (req, res) {
   }
 });
 
+app.get('/webhok',function(req,res){
+  console.log('webhook recived');
+})
+
 app.get('*', function (req, res) {
 
   var baseUrl = config.esco;
