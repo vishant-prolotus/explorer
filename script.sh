@@ -1,9 +1,13 @@
 #!/bin/bash
-
-for pid in $(pgrep node)
+pgrep -af node | while read -r pid cmd ; do     
+for col in $cmd
 do
-kill -9 $pid
-done && echo "[+] PIDs Killed";
+echo $col
+if [[ $col = *"explorer"* ]]; then
+  kill -9 $pid
+fi
+done;
+done;
 cd /home/explorer;
 git pull origin master;
 sleep 1;
