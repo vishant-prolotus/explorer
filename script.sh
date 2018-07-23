@@ -13,4 +13,3 @@ git pull origin master;
 sleep 1;
 npm start;
 echo "[+] Node App Started sucessfully";
-## E O F ##
