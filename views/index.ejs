@@ -8,15 +8,6 @@
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="shortcut icon" href="http://204.48.19.45/images/favicon.ico" />
-	<link rel="apple-touch-icon" href="http://204.48.19.45/images/favicon.ico" />
-	<link rel="apple-touch-icon-precomposed" href="http://204.48.19.45/images/favicon.ico" />
-
-	<link rel="stylesheet" href="http://204.48.19.45/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://204.48.19.45/css/ExplorerEscodex.css" type="text/css" />
-	<script src="http://204.48.19.45/js/jquery.min.js"></script>
-	<script src="http://204.48.19.45/js/bootstrap.min.js"></script>
 	<script type='text/javascript'>
 		function sendrequest() {
 			var hash = document.getElementById('ID').value;
@@ -24,6 +15,12 @@
 			window.location.href = '/api/' + type + '/' + hash;
 		}
 	</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="apple-touch-icon-precomposed" href=<%= url + "/images/favicon.ico" %> />
+	<link rel="stylesheet" href=<%= url+ "/css/bootstrap.min.css" %> >
+	<link rel="stylesheet" href=<%= url+ "/css/ExplorerEscodex.css" %> type="text/css" />
+	<script src=<%= url+ "/js/jquery.min.js"%></script>
+	<script src=<%= url+ "/js/bootstrap.min.js"%></script>
 </head>
 
 <body data-spy="scroll">
@@ -33,8 +30,8 @@
 				<div class="row">
 					<div class="col-md-4 col-lg-4 col-sm-6 col-xl-4 col-xs-12">
 						<div id="logo">
-							<a href="http://204.48.19.45/">
-								<img src="http://204.48.19.45/images/logo.png" alt="" />
+							<a href=<%= url %>>
+								<img src=<%= url+ "/images/logo.png"%> alt="" />
 							</a>
 						</div>
 					</div>
@@ -46,37 +43,37 @@
 						<ul class="social_top">
 							<li>
 								<a href="https://www.facebook.com/EscoDex-197738274287664/">
-									<img src="http://204.48.19.45/images/facebook.png" alt="">
+									<img src=<%= url+ "/images/facebook.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="http://www.twitter.com">
-									<img src="http://204.48.19.45/images/twitter.png" alt="">
+									<img src=<%= url+ "/images/twitter.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://discord.gg/Sn4d2D">
-									<img src="http://204.48.19.45/images/social3.png" alt="">
+									<img src=<%= url+ "/images/social3.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://t.me/escodex">
-									<img src="http://204.48.19.45/images/socail4.png" alt="">
+									<img src=<%= url+ "/images/socail4.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://redd.it/8cvcu9">
-									<img src="http://204.48.19.45/images/reddit.png" alt="">
+									<img src=<%= url+ "/images/reddit.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://bitcointalk.org/index.php?topic=3336699.msg34898798#msg34898798">
-									<img src="http://204.48.19.45/images/bitcoin.png" alt="">
+									<img src=<%= url+ "/images/bitcoin.png"%> alt="">
 								</a>
 							</li>
 							<li>
 								<a href="https://medium.com/@emmajones_27838/welcome-to-escodex-5ed1779102c1">
-									<img src="http://204.48.19.45/images/medium.png" alt="">
+									<img src=<%= url+ "/images/medium.png"%> alt="">
 								</a>
 							</li>
 						</ul>
@@ -91,7 +88,7 @@
 
 				<div class="col-md-10 col-lg-10 col-sm-12 col-xl-10 col-12 offset-md-1 pt-3 section-1">
 					<a href="https://google.com">
-						<img src="http://204.48.19.45/images/banner31_8.gif" class="pb-4" style="width:100%;" />
+						<img src=<%= url+ "/images/banner31_8.gif"%> class="pb-4" style="width:100%;" />
 					</a>
 					<%if (logo!=null) { %>
 						<div class="row">
@@ -106,7 +103,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 col-lg-2 col-sm-2 col-xl-2  text-center">
-								<img src="http://204.48.19.45/images/<%= logo %>.png" style="width:84%;" />
+								<img src=<%= url+ '/images/' + logo + '.png'%> style="width:84%;" />
 							</div>
 							<div class="col-md-5 col-lg-5 col-sm-5 col-xl-5 text-right ">
 								<div class="card text-center">
@@ -118,30 +115,30 @@
 									</div>
 								</div>
 							</div>
-						
-									<div class="col-md-8 pt-5">
-										<div class="input-group" id="adv-search">
-											<input type="text" class="form-control" id="ID" placeholder="Enter tx hash or Address" />
-											<div class="input-group-btn">
-												<div class="btn-group" role="group">
-													<button type="button" onclick="sendrequest()" class="btn btn-primary ">
-														<i class="fa fa-search"></i>
-													</button>
-												</div>
-											</div>
+
+							<div class="col-md-8 pt-5">
+								<div class="input-group" id="adv-search">
+									<input type="text" class="form-control" id="ID" placeholder="Enter tx hash or Address" />
+									<div class="input-group-btn">
+										<div class="btn-group" role="group">
+											<button type="button" onclick="sendrequest()" class="btn btn-primary ">
+												<i class="fa fa-search"></i>
+											</button>
 										</div>
 									</div>
-									<div class="col-md-4 pt-5">
-										<select class="form-control" id="coinType">
-											<% for(var i=0; i < cur.length; i++) { %>
-												<option value="<%= cur[i].name %>">
-													<%= cur[i].name %>
-												</option>
-												<% } %>
-										</select>
-									</div>
+								</div>
+							</div>
+							<div class="col-md-4 pt-5">
+								<select class="form-control" id="coinType">
+									<% for(var i=0; i < cur.length; i++) { %>
+										<option value="<%= cur[i].name %>">
+											<%= cur[i].name %>
+										</option>
+										<% } %>
+								</select>
+							</div>
 
-							
+
 						</div>
 						<% } %>
 				</div>
@@ -164,7 +161,7 @@
 									<div class="card-header bg-secondary text-white escotx">ESCO txid:
 										<span>
 
-											<a href="<%= url + '/' + logo + '/' + message.txid %>">
+											<a href="<%= url + '/api/' + logo + '/' + message.txid %>">
 												<%= message.txid %>
 											</a>
 
@@ -250,7 +247,7 @@
 													<tbody>
 														<tr>
 															<td>
-																<a href="<%= url + '/' + logo + '/' + message.vout[i].scriptPubKey.addresses %>">
+																<a href="<%= url + '/api/' + logo + '/' + message.vout[i].scriptPubKey.addresses %>">
 																	<%= message.vout[i].scriptPubKey.addresses %>
 																</a>
 

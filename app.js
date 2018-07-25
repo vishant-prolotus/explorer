@@ -10,8 +10,6 @@ var express = require('express')
   , request = require('request')
 var http = require('http');
 const shell = require('shelljs');
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/explorerdb');
 var app = express();
 var moment = require('moment');
 app.set('port', 3001);
@@ -27,171 +25,172 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', function (req, res) {
 
   var arr = req.url.split('/');
-  
+  var regEx = /^([A-Fa-f0-9]{64})$/.test(arr[2]);
   if (arr.length == 3) {
-
-    var regEx = /^([A-Fa-f0-9]{64})$/.test(arr[2]);
-
     var baseUrl = config[arr[1]];
 
-    request(baseUrl + '/api/getdifficulty', { json: true }, function (error, response, body) {
+    getBlockCount(baseUrl).then(function (blockcount) {
 
-      if (!error && body != null && body != undefined) {
+      getConnectionCount(baseUrl).then(function (connectioncount) {
 
-        var difficulty = body;
+        getDifficulty(baseUrl).then(function (difficulty) {
 
-        request(baseUrl + '/api/getconnectioncount', { json: true }, function (error, response, body) {
+          if (regEx) {
 
-          if (!error && body != null && body != undefined) {
+            var HttpRequest = baseUrl + '/api/getrawtransaction?txid=' + arr[2] + '&decrypt=1';
+            request(HttpRequest, { json: true }, function (error, response, body) {
 
-            var connections = body;
+              res.render("index", {
+                "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connectioncount },
+                "cur": config.currencies, "url": config.url, "moment": moment
+              });
 
-            request(baseUrl + '/api/getblockcount', { json: true }, function (error, response, body) {
+            });
 
-              if (!error && body != null && body != undefined) {
+          } else {
 
-                var blockcount = body;
+            var HttpRequest = baseUrl + '/ext/getaddress/' + arr[2];
+            request(HttpRequest, { json: true }, function (error, response, body) {
 
-                if (regEx) {
-
-                  var HttpRequest = baseUrl + '/api/getrawtransaction?txid=' + arr[2] + '&decrypt=1';
-
-                  request(HttpRequest, { json: true }, function (error, response, body) {
-
-                    res.render("index", {
-                      "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                      "cur": config.currencies, "url": "http://204.48.19.45/api/", "moment": moment
-                    });
-
-                  });
-
-                } else {
-
-                  var HttpRequest = baseUrl + '/ext/getaddress/' + arr[2];
-
-                  request(HttpRequest, { json: true }, function (error, response, body) {
-
-                    res.render("address", {
-                      "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                      "cur": config.currencies, "url": "http://204.48.19.45/api/", "moment": moment
-                    });
-
-                  });
-
-                }
-
-              }
+              res.render("address", {
+                "message": body, "error": null, "logo": arr[1], "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connectioncount },
+                "cur": config.currencies, "url": config.url, "moment": moment
+              });
 
             });
 
           }
+        }).catch(function (error) {
 
-        });
-
-      }
-
-    });
-
-  } else {
-
-    var baseUrl = config.esco;
-
-    request(baseUrl + '/api/getdifficulty', { json: true }, function (error, response, body) {
-
-      if (!error && body != null && body != undefined) {
-
-        var difficulty = body;
-
-        request(baseUrl + '/api/getconnectioncount', { json: true }, function (error, response, body) {
-
-          if (!error && body != null && body != undefined) {
-
-            var connections = body;
-
-            request(baseUrl + '/api/getblockcount', { json: true }, function (error, response, body) {
-
-              if (!error && body != null && body != undefined) {
-
-                var blockcount = body;
-
-                res.render("index", {
-                  "message": null, "error": null, "logo": "esco",
-                  "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                  "cur": config.currencies, "moment": moment
-                });
-
-              }
-
-            });
-
-          }
+          res.render("index", {
+            "message": null, "error": null, "logo": arr[1], "data": { "difficulty": 'N/A', "blockcount": blockcount, "connections": connectioncount },
+            "cur": config.currencies, "url": config.url, "moment": moment
+          });
 
         })
 
-      }
+      }).catch(function (error) {
 
-    });
-
-  }
-});
-
-app.get('*', function (req, res) {
-
-  var baseUrl = config.esco;
-
-  request(baseUrl + '/api/getdifficulty', { json: true }, function (error, response, body) {
-
-    if (!error && body != null && body != undefined) {
-
-      var difficulty = body;
-
-      request(baseUrl + '/api/getconnectioncount', { json: true }, function (error, response, body) {
-
-        if (!error && body != null && body != undefined) {
-
-          var connections = body;
-
-          request(baseUrl + '/api/getblockcount', { json: true }, function (error, response, body) {
-
-            if (!error && body != null && body != undefined) {
-
-              var blockcount = body;
-
-              res.render("index", {
-                "message": null, "error": null, "logo": "esco",
-                "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connections },
-                "cur": config.currencies, "moment": moment
-              });
-
-            }
-
-          });
-
-        }
+        res.render("index", {
+          "message": null, "error": null, "logo": arr[1], "data": { "difficulty": 'N/A', "blockcount": "N/A", "connections": connectioncount },
+          "cur": config.currencies, "url": config.url, "moment": moment
+        });
 
       })
 
-    }
+    }).catch(function (error) {
 
-  });
+      res.render("index", {
+        "message": null, "error": null, "logo": arr[1], "data": { "difficulty": 'N/A', "blockcount": "N/A", "connections": "N/A" },
+        "cur": config.currencies, "url": config.url, "moment": moment
+      });
 
+    })
+
+  } else {
+
+    res.render("index", {
+      "message": null, "error": null, "logo": null, "data": { "difficulty": 'N/A', "blockcount": "N/A", "connections": "N/A" },
+      "cur": config.currencies, "url": config.url, "moment": moment
+    });
+
+  }
+
+})
+
+app.get('*', function (req, res) {
+  var baseUrl = config.esco;
+
+  getBlockCount(baseUrl).then(function (blockcount) {
+
+    getConnectionCount(baseUrl).then(function (connectioncount) {
+
+      getDifficulty(baseUrl).then(function (difficulty) {
+
+        res.render("index", {
+          "message": null, "error": null, "logo": "ESCO",
+          "data": { "difficulty": difficulty, "blockcount": blockcount, "connections": connectioncount },
+          "cur": config.currencies, "moment": moment, "url": config.url
+        });
+
+      }).catch(function (error) {
+
+        res.render("index", {
+          "message": null, "error": null, "logo": "ESCO", "data": { "difficulty": 'N/A', "blockcount": blockcount, "connections": connectioncount },
+          "cur": config.currencies, "url": config.url, "moment": moment
+        });
+
+      })
+    }).catch(function (error) {
+
+      res.render("index", {
+        "message": null, "error": null, "logo": "ESCO", "data": { "difficulty": 'N/A', "blockcount": "N/A", "connections": connectioncount },
+        "cur": config.currencies, "url": config.url, "moment": moment
+      });
+
+    })
+  }).catch(function (error) {
+
+    res.render("index", {
+      "message": null, "error": null, "logo": "ESCO", "data": { "difficulty": 'N/A', "blockcount": "N/A", "connections": "N/A" },
+      "cur": config.currencies, "url": config.url, "moment": moment
+    });
+
+  })
 });
+
+function getBlockCount(baseUrl) {
+
+  return new Promise(function (resolve, reject) {
+    request(baseUrl + '/api/getblockcount', { json: true }, function (error, response, body) {
+      if (!error && body != null && body != undefined) {
+        resolve(body);
+      } else {
+        reject("error");
+      }
+    })
+  })
+}
+
+function getConnectionCount(baseUrl) {
+
+  return new Promise(function (resolve, reject) {
+    request(baseUrl + '/api/getconnectioncount', { json: true }, function (error, response, body) {
+      if (!error && body != null && body != undefined) {
+        resolve(body);
+      } else {
+        reject("error");
+      }
+    })
+  })
+
+}
+
+function getDifficulty(baseUrl) {
+
+  return new Promise(function (resolve, reject) {
+    request(baseUrl + '/api/getdifficulty', { json: true }, function (error, response, body) {
+      if (!error && body != null && body != undefined) {
+        resolve(body);
+      } else {
+        reject("error");
+      }
+    })
+  })
+
+}
 
 server.listen(3001);
 server.on('error', function (error) {
-
   console.log(error);
-
 });
 
 server.on('listening', function () {
-
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   console.log('Listening on ' + bind);
-
 });
 
 module.exports = app;

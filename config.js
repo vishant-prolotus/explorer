@@ -1,44 +1,45 @@
 module.exports = {
 
-    esco: "http://159.89.100.94:3001",
+    ESCO: "http://159.89.100.94:3001",
 
-    hld: "http://highlandpay.org:3001",
+    url: "http://204.48.19.45",
 
-    lpc: "http://explorer.lightpaycoin.org:3001",
+    HLD: "http://highlandpay.org:3001",
 
-    btci: "http://explorer.bitcoinincognito.com",
+    LPC: "http://explorer.lightpaycoin.org:3001",
 
-    rvn: "http://raven-blockchain.info",
+    BTCI: "http://explorer.bitcoinincognito.com",
 
-    c2c: "https://explorer.coin2coin.network",
+    RVN: "http://raven-blockchain.info",
 
-    dvx: "https://explorer.dvx-revolution.net",
+    C2C: "https://explorer.coin2coin.network",
 
-    kona: "https://explorer.konacoin.cloud",
+    DVX: "https://explorer.dvx-revolution.net",
 
-    vyi: "http://chain.vyigrat.com",
+    KONA: "https://explorer.konacoin.cloud",
 
-    polis: "https://explorer.polispay.org",
+    VYI: "http://chain.vyigrat.com",
 
-    bws: "http://217.163.23.222:3000",
+    POLIS: "https://explorer.polispay.org",
 
-    cpra: "http://cpra-explorer-1.giize.com:3001",
+    BWS: "http://217.163.23.222:3000",
 
-    tsc: "http://tsc-explorer.giize.com",
+    CPRA: "http://cpra-explorer-1.giize.com:3001",
 
-    ion: "https://www.ionexplorer.com/api",
+    TSC: "http://tsc-explorer.giize.com",
 
-    saga: "http://explorer.sagacoin.net",
+    ION: "https://www.ionexplorer.com/api",
 
-    linc: "https://explorer.linc.site",
+    SAGA: "http://explorer.sagacoin.net",
 
-    care: "http://206.189.19.150",
+    LINC: "https://explorer.linc.site",
 
-    harc: "http://95.181.230.26:3001",
+    CARE: "http://206.189.19.150",
 
-    tfc: "http://explorer.freedom-coin.io",
+    HARC: "http://95.181.230.26:3001",
 
+    TFC: "http://explorer.freedom-coin.io",
 
-    currencies: [{ "name": "hld" }, { "name": "btci" }, { "name": "lpc" }, { "name": "rvn" }, { "name": "c2c" }, { "name": "dvx" }, { "name": "kona" }, { "name": "vyi" }, { "name": "polis" }, { "name": "bws" }, { "name": "cpra" }, { "name": "ion" }, { "name": "saga" }, { "name": "linc" }, { "name": "care" }, { "name": "harc" }, { "name": "tfc" }]
+    currencies: [{ "name": "HLD" }, { "name": "BTCI" }, { "name": "LPC" }, { "name": "RVN" }, { "name": "C2C" }, { "name": "DVX" }, { "name": "KONA" }, { "name": "VYI" }, { "name": "POLIS" }, { "name": "BWS" }, { "name": "CPRA" }, { "name": "ION" }, { "name": "SAGA" }, { "name": "LINC" }, { "name": "CARE" }, { "name": "HARC" }, { "name": "TFC" }]
 
 }
