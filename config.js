@@ -28,7 +28,7 @@ module.exports = {
 
     TSC: "http://tsc-explorer.giize.com",
 
-    ION: "https://www.ionexplorer.com/api",
+    ION: "https://www.ionexplorer.com",
 
     SAGA: "http://explorer.sagacoin.net",
 
@@ -40,10 +40,21 @@ module.exports = {
 
     TFC: "http://explorer.freedom-coin.io",
 
+    VLM : "http://13.58.148.43:3001",
+
+    XGOX : "http://173.254.204.74:12313",
+
+    GOSS : "http://chain.gossipcoin.net",
+
+    DFS : "https://explorer.defensebox.io",
+
+
+
     currencies: [{ "name": "HLD" }, { "name": "BTCI" }, { "name": "LPC" }, { "name": "RVN" },
                  { "name": "C2C" }, { "name": "DVX" }, { "name": "KONA" }, { "name": "VYI" }, 
                  { "name": "POLIS" }, { "name": "BWS" }, { "name": "CPRA" }, { "name": "ION" }, 
                  { "name": "SAGA" }, { "name": "LINC" }, { "name": "CARE" }, { "name": "HARC" },
-                 { "name": "TFC" }]
+                 { "name": "TFC" } , { "name" : "VLM"} ,{"name" : "XGOX"} , {"name" : "GOSS"} ,
+                 {"name": "DFS"} ]
 
 }
