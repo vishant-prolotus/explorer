@@ -41,9 +41,9 @@ module.exports = {
     TFC: "http://explorer.freedom-coin.io",
 
     currencies: [{ "name": "HLD" }, { "name": "BTCI" }, { "name": "LPC" }, { "name": "RVN" },
-                // { "name": "C2C" }, { "name": "DVX" }, { "name": "KONA" }, { "name": "VYI" }, 
-                 //{ "name": "POLIS" }, { "name": "BWS" }, { "name": "CPRA" }, { "name": "ION" }, 
-                // { "name": "SAGA" }, { "name": "LINC" }, { "name": "CARE" }, { "name": "HARC" },
+                 { "name": "C2C" }, { "name": "DVX" }, { "name": "KONA" }, { "name": "VYI" }, 
+                 { "name": "POLIS" }, { "name": "BWS" }, { "name": "CPRA" }, { "name": "ION" }, 
+                 { "name": "SAGA" }, { "name": "LINC" }, { "name": "CARE" }, { "name": "HARC" },
                  { "name": "TFC" }]
 
 }
