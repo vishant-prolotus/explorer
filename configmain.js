@@ -4,7 +4,7 @@ module.exports = {
 
     lpc: "http://explorer.lightpaycoin.org:3001",
 
-    btci: "http://explorer.bitcoinincognito.com",
+    BTCI: "http://explorer.bitcoinincognito.com",
 
     currencies: [{ "name": "hld" }, { "name": "btci" }, { "name": "lpc" }]
 
