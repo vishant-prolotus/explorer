@@ -99,7 +99,7 @@ app.use('/api', function (req, res) {
 })
 
 app.get('*', function (req, res) {
-  var baseUrl = config.esco;
+  var baseUrl = config.ESCO;
 
   getBlockCount(baseUrl).then(function (blockcount) {
 
